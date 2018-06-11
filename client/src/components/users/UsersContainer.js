@@ -1,22 +1,21 @@
 import React from 'react';
 import List from '@material-ui/core/List';
+import UserContainer from './UserContainer.js';
 import { ApiRequester } from '../utilities/apiRequesterService.js';
 
 export default class UsersContainer extends React.Component {
   state = {
-    users: [{name: "Steve", kudos_given: 0, kudos_received: 0},
-            {name: "John", kudos_given: 4, kudos_received: 2}],
+    users: [],
   }
 
   componentDidMount = () => {
-    ApiRequester.get("users").then( resp => {
-      debugger;
-      this.state.users =  resp.body;
+    ApiRequester.get('users').then( resp => {
+      this.setState({users: resp.data});
     });
   }
 
   render() {
-    let userContainers = this.state.users.map( user => <div>{user.first_name}</div>);
+    let userContainers = this.state.users.map( user => <UserContainer key={user.id} user={user} />);
     
     return(
       <List>

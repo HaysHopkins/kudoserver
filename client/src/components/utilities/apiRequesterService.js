@@ -4,7 +4,7 @@ const ApiClient = window.origin;
 
 export const ApiRequester = {
   get: (path, params) => (
-    axios.get(`/api/${path}`, params)
+    axios.get(`${path}`, params)
       .then((resp) => {
         return resp;
       })
