@@ -20,10 +20,13 @@ gem 'dotenv-rails'
 
 # API
 gem "active_model_serializers"
-gem "responders", "~> 2.0"
 
 # API
 gem "active_model_serializers"
+
+# Authentication
+gem 'bcrypt', '~> 3.1.12'
+gem 'jwt', '~> 2.1.0'
 
 gem 'faker'
 gem 'rack-cors', :require => 'rack/cors'
