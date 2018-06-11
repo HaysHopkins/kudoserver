@@ -15,6 +15,7 @@ const UserInfoColumn = styled.div`
   margin-right: 20px;
 `;
 const UserDatum = styled.div`
+  width: 125px;
   margin: 10px 30px;
   display: inline-block;
 `
