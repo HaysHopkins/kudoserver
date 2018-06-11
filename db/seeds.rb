@@ -12,13 +12,15 @@ def limited_text(sentence)
   return sentence[0..139]
 end
 
+t1 = Team.create!(name: "Trakstar")
+
 # first user is the "logged in" user accessed with GET /users/me
-user1 = User.create!(generate_user_data.merge({ created_at: 5.months.ago }))
-user2 = User.create!(generate_user_data.merge({ created_at: 4.months.ago }))
-user3 = User.create!(generate_user_data.merge({ created_at: 3.months.ago }))
-user4 = User.create!(generate_user_data.merge({ created_at: 2.months.ago }))
-user5 = User.create!(generate_user_data)
-user6 = User.create!(generate_user_data)
+user1 = User.create!(generate_user_data.merge({ created_at: 5.months.ago, team: t1 }))
+user2 = User.create!(generate_user_data.merge({ created_at: 4.months.ago, team: t1 }))
+user3 = User.create!(generate_user_data.merge({ created_at: 3.months.ago, team: t1 }))
+user4 = User.create!(generate_user_data.merge({ created_at: 2.months.ago, team: t1 }))
+user5 = User.create!(generate_user_data.merge({team: t1}))
+user6 = User.create!(generate_user_data.merge({team: t1}))
 
 Kudo.create!({ giver: user1, receiver: user2, created_at: 3.months.ago, text: limited_text(Faker::Hacker.say_something_smart) })
 Kudo.create!({ giver: user1, receiver: user2, created_at: 12.days.ago, text: limited_text(Faker::RickAndMorty.quote) })
