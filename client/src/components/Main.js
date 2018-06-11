@@ -11,7 +11,7 @@ export const Main = () => (
   <Router>
     <div>
       <Header />
-      <PrivateRoute path="/users" component={UsersContainer} />
+      <Route path="/users" component={UsersContainer} />
       <Redirect from='/' to='/users'/>
     </div>
   </Router>

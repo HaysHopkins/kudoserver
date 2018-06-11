@@ -21,14 +21,14 @@ const Title = styled.div `
   color: #FFFAF0;
 `
 const Header = () => {
-  <HeaderWrapper>
-    <LinkWrapper href="/stacks">
-      <StyledImage src="" />
-    </LinkWrapper>
-    <LinkWrapper href="/stacks" style={{textDecoration: "none"}}>
-      <Title>Kudoserver</Title>
-    </LinkWrapper>
-  </HeaderWrapper>
+  return <HeaderWrapper>
+           <LinkWrapper href="/users">
+             <StyledImage src="" />
+           </LinkWrapper>
+           <LinkWrapper href="/users" style={{textDecoration: "none"}}>
+             <Title>Kudoserver</Title>
+           </LinkWrapper>
+         </HeaderWrapper>
 }
 
 export default Header;
