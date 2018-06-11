@@ -21,9 +21,6 @@ gem 'dotenv-rails'
 # API
 gem "active_model_serializers"
 
-# API
-gem "active_model_serializers"
-
 # Authentication
 gem 'bcrypt', '~> 3.1.12'
 gem 'jwt', '~> 2.1.0'
