@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.1.3'
 gem 'pg'
 gem 'puma', '~> 3.7'
+gem 'foreman'
 
 gem 'faker'
 
