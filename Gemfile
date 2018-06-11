@@ -24,7 +24,6 @@ gem "responders", "~> 2.0"
 
 # API
 gem "active_model_serializers"
-gem "responders", "~> 2.0"
 
 gem 'faker'
 gem 'rack-cors', :require => 'rack/cors'
