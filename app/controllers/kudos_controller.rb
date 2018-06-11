@@ -9,7 +9,7 @@ class KudosController < ApplicationController
   def show
     @user = User.find(params[:id])
     @kudos = @user.kudos_received
-    render @kudos, each_serializer: KudosSerializer
+    render json: @kudos, status: :ok
   end
 
   # POST /kudos

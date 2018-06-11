@@ -10,15 +10,15 @@ export const ApiRequester = {
       })
   ),
 
-  put: (path, params) => (
-    axios.put(`${ApiClient}/api/${path}`, params)
+  post: (path, params) => (
+    axios.post(`${path}`, params)
       .then((resp) => {
         return resp;
       })
   ),
 
   delete: (path, params) => (
-    axios.delete(`${ApiClient}/api/${path}`, params)
+    axios.delete(`${path}`, params)
       .then((resp) => {
         return resp;
       })

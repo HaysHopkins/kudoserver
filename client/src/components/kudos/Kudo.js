@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexStart } from '../page_layout/FlexLayout.js'
+import { FlexStart } from '../page_layout/FlexLayout.js';
 
 const KudoWrapper = FlexStart.extend`
   border: solid;

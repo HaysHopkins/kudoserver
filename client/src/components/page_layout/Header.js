@@ -4,16 +4,18 @@ import { FlexLayout } from "./FlexLayout.js";
 
 const HeaderWrapper = FlexLayout.extend`
   width: 100%;
-  background-color: #333333;
-  padding-top: 20px;
-  padding-left: 20px;
+  background-color: #333;
+  padding-top: 40px;
+  padding-left: 40px;
   height: 100px;
 `
 const LinkWrapper = styled.a``
 const StyledImage = styled.img`
   width: 40px;
   height: 40px;
-  margin-right: 2px;
+  background-color: #FFFAF0;
+  border-radius: 20px;
+  margin-right: 15px;
 `
 const Title = styled.div `
   font-size: 36px;
@@ -23,10 +25,10 @@ const Title = styled.div `
 const Header = () => {
   return <HeaderWrapper>
            <LinkWrapper href="/users">
-             <StyledImage src="" />
+             <StyledImage src="./kudos.png" />
            </LinkWrapper>
            <LinkWrapper href="/users" style={{textDecoration: "none"}}>
-             <Title>Kudoserver</Title>
+             <Title>kudoserver</Title>
            </LinkWrapper>
          </HeaderWrapper>
 }

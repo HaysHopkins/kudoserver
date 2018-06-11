@@ -26,8 +26,8 @@ export default class User extends React.Component {
 
         <UserInfoColumn onClick={this.props.onLoadKudos}>
           <UserDatum>User:<br/> {this.props.user.first_name + " " + this.props.user.last_name}</UserDatum>
-          <UserDatum>Kudos Given:<br/> {this.props.user.kudos_given_count}</UserDatum>
-          <UserDatum>Kudos Received:<br/> {this.props.user.kudos_received_count}</UserDatum>
+          <UserDatum>Kudos Given:<br/> {this.props.user.kudos_given_count || 0}</UserDatum>
+          <UserDatum>Kudos Received:<br/> {this.props.user.kudos_received_count || 0}</UserDatum>
         </UserInfoColumn>
 
         <Button variant="outlined" color="primary" onClick={this.props.onGiveKudos}>
