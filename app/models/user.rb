@@ -13,6 +13,8 @@
 #
 
 class User < ApplicationRecord
+  has_secure_password
+  
   belongs_to :team
   has_many :kudos_given, class_name: 'Kudo', foreign_key: :giver_id, dependent: :destroy
   has_many :kudos_received, class_name: 'Kudo', foreign_key: :receiver_id

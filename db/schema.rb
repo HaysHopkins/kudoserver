@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180611223633) do
     t.text "first_name"
     t.text "last_name"
     t.bigint "team_id"
-    t.string "email"
     t.string "password_digest"
     t.index ["team_id"], name: "index_users_on_team_id"
   end
