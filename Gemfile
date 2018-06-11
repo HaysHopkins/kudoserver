@@ -5,17 +5,31 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Rails
 gem 'rails', '~> 5.1.3'
+
+# Database
 gem 'pg'
+
+# App Server
 gem 'puma', '~> 3.7'
+
+# Ruby Env
 gem 'foreman'
+gem 'dotenv-rails'
+
+# API
+gem "active_model_serializers"
+gem "responders", "~> 2.0"
+
+# API
+gem "active_model_serializers"
+gem "responders", "~> 2.0"
 
 gem 'faker'
-
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6.1'
 end
