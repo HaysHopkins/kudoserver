@@ -1,14 +1,14 @@
 import React from 'react';
-import { FlexColumnCenter } from '../page_layout/FlexLayout.js'
+import { FlexStart } from '../page_layout/FlexLayout.js'
 
-const KudoWrapper = FlexColumnCenter.extend`
+const KudoWrapper = FlexStart.extend`
   border: solid;
   border-width: 1px;
   padding: 10px;
 `
-const Kudo = ({text, giver, created_at}) => {
+const Kudo = ({text, giver, given_at}) => {
  return <KudoWrapper>
-            "{text}" -{giver} ({created_at})
+            "{text}" -{giver} ({given_at})
         </KudoWrapper>;
 }
 

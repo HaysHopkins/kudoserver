@@ -14,7 +14,6 @@ export default class UserContainer extends React.Component {
   loadKudos = () => {
     if (this.state.kudos.length === 0) {
       ApiRequester.get('kudos').then((resp) => {
-        debugger;
         this.setState({kudos: resp.data});
       });
     } else {
