@@ -1,4 +1,3 @@
-# Note the extra setup instructions added below.
 ## Tasks
 
 1) 
@@ -21,6 +20,7 @@ TODO: tests tests tests; change more components to functional/ui, kudos n+1, mak
 
 
 ## Setup
+### Note the extra setup instruction
 1) Install dependencies with `bundle install`
 2) Configure your database settings in `config/database.yml`
 3) Build your database with `rails db:setup db:seed`
