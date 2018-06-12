@@ -1,1 +1,1 @@
-TODO: tests tests tests, change more components to functional/ui, kudos n+1, 
+TODO: tests tests tests; permissions based on team, not giving yourself kudo; change more components to functional/ui, kudos n+1, make sure counter is working (might need to manually update count before reload)

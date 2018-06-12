@@ -29,9 +29,8 @@ export const ApiRequester = {
   ),
 
   post: (path, params) => (
-    axios.post(`${path}`, {
-      headers: headers(), 
-      params
+    axios.post(`${path}`, params, {
+      headers: headers(),
     })
     .then((resp) => {
       return resp;
