@@ -14,14 +14,22 @@ const LoginWrapper = FlexColumnCenter.extend`
   padding: 10px;
   margin-top: 100px;
 `
+const SignupWrapper = styled.div`
+  padding: 10px;
+  margin-top: 10px;
+`
 const LoginHeader = styled.h3``
 const ButtonWrapper = styled.div``
+
 export default class Login extends React.Component {
   state = {
     redirectToReferrer: false,
     returningUser: true,
     username: '',
     password: '',
+    first_name: '',
+    last_name: '',
+    team: '',
   };
 
   handleUserInput = ({ target }) => {
@@ -40,10 +48,20 @@ export default class Login extends React.Component {
     }
   };
 
+  signUpParams = () => {
+    return {
+      username: this.state.username, 
+      password: this.state.password,
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      team: this.state.team,
+    }
+  }
+
   signUp = () => {
     if (!this.state.returningUser) {
       AuthenticationService.signUp(
-        {username: this.state.username, password: this.state.password}, 
+        this.signUpParams(), 
         () => { this.setState({ redirectToReferrer: true });}
       );
     } else {
@@ -59,6 +77,25 @@ export default class Login extends React.Component {
     }
   }
 
+  renderSignup = () => {
+    if (!this.state.returningUser) {
+      return <SignupWrapper>
+               <FormInput inputName={'first_name'}
+                      changeCb={this.handleUserInput.bind(this)}
+                      inputValue={this.state.first_name} 
+                      placeholder="first_name" />
+               <FormInput inputName={'last_name'}
+                      changeCb={this.handleUserInput.bind(this)}
+                      inputValue={this.state.last_name} 
+                      placeholder="last name" />
+               <FormInput inputName={'team'}
+                      changeCb={this.handleUserInput.bind(this)}
+                      inputValue={this.state.team} 
+                      placeholder="team name" />
+             </SignupWrapper>
+    }
+  }
+
   render() {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const { redirectToReferrer } = this.state;
@@ -68,17 +105,21 @@ export default class Login extends React.Component {
     }
 
     const header = this.renderHeader();
+    const signUp = this.renderSignup();
     return (
       <LoginWrapper>
           {header}
           <Logo />
           <FormInput inputName={'username'}
                       changeCb={this.handleUserInput.bind(this)}
-                      inputValue={this.state.username} />
+                      inputValue={this.state.username} 
+                      placeholder="username" />
           <FormInput inputName={'password'}
             changeCb={this.handleUserInput.bind(this)}
             inputValue={this.state.password}
-            type='password' />
+            type='password'
+            placeholder="••••••••" />
+          {signUp}
           <ButtonWrapper>
             <Button onClick={this.login.bind(this)}>Log in</Button>
             <Button onClick={this.signUp.bind(this)}>Sign up</Button>

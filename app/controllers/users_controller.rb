@@ -23,6 +23,14 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :first_name, :last_name, :password)
+    params.permit(:username, :first_name, :last_name, :password).merge(team: team)
+  end
+
+  def team
+    team ||= Team.find_or_create_by(name: team_param[:team])
+  end
+
+  def team_param
+    params.permit(:team)
   end
 end
