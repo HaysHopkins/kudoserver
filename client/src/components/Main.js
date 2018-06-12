@@ -9,11 +9,13 @@ import Header from './page_layout/Header.js';
 import UsersContainer from './users/UsersContainer.js';
 import Login from './auth/Login.js';
 import { FlexColumnCenter } from './page_layout/FlexLayout.js';
+import { ToastContainer } from 'react-toastify';
 
 export const Main = () => (
   <Router>
     <FlexColumnCenter>
       <Header />
+      <ToastContainer />
       <Route path="/login" component={Login} />
       <PrivateRoute path="/users" component={UsersContainer} />
       <Redirect from='/' to='/users'/>
