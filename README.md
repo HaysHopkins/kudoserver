@@ -1,17 +1,17 @@
-Note the extra setup instructions added below.
+# Note the extra setup instructions added below.
 ## Tasks
 
 1) 
--[ x ] Give kudos to other users
--[ x ] See kudos given to him/her by other users
--[ x ] View all kudos another user has received
+-[x] Give kudos to other users
+-[x] See kudos given to him/her by other users
+-[x] View all kudos another user has received
 
 2) Additionally, take a swing at adding one or two of the following improvements:
 
--[ x ]  Allow users to be associated with an organization
--[ x ] Allow logging in as different users (authentication)
+-[x]  Allow users to be associated with an organization
+-[x] Allow logging in as different users (authentication)
   -This needs work to be production ready, but basic outline is there
--[ x ] Prevent users from being able to do things they shouldn't (authorization)
+-[x] Prevent users from being able to do things they shouldn't (authorization)
   -Scoping by team effectively accomplishes this; also prevent self-kudos
 -[ ] Enforce a limit on giving kudos (for example, up to 3 kudos per week)
 -[ ] Limit the number of information displayed on each page (pagination)
