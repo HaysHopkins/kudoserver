@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
-import { Logo } from '../page_layout/Logo.js';
 
 const UserWrapper = styled.div`
   display: flex;

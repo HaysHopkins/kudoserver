@@ -3,7 +3,6 @@ import User from './User.js';
 import Kudo from '../kudos/Kudo.js';
 import GiveKudo from '../kudos/GiveKudo.js';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import { ApiRequester } from '../utilities/ApiRequesterService.js';
 
 export default class UserContainer extends React.Component {

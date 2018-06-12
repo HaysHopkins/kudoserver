@@ -19,6 +19,7 @@ const ButtonWrapper = styled.div``
 export default class Login extends React.Component {
   state = {
     redirectToReferrer: false,
+    returningUser: true,
     username: '',
     password: '',
   };
@@ -29,14 +30,33 @@ export default class Login extends React.Component {
   }
 
   login = () => {
-    AuthenticationService.authenticate(
-      {username: this.state.username, password: this.state.password}, 
-      () => { this.setState({ redirectToReferrer: true });}
-    );
+    if (this.state.returningUser) {
+      AuthenticationService.authenticate(
+        {username: this.state.username, password: this.state.password}, 
+        () => { this.setState({ redirectToReferrer: true });}
+      );
+    } else {
+      this.setState({returningUser: true});
+    }
   };
 
   signUp = () => {
+    if (!this.state.returningUser) {
+      AuthenticationService.signUp(
+        {username: this.state.username, password: this.state.password}, 
+        () => { this.setState({ redirectToReferrer: true });}
+      );
+    } else {
+      this.setState({returningUser: false});
+    }
+  }
 
+  renderHeader = () => {
+    if (this.state.returningUser) {
+      return <LoginHeader>Welcome back to kudoserver!</LoginHeader>        
+    } else {
+      return <LoginHeader>Welcome to kudoserver!</LoginHeader>
+    }
   }
 
   render() {
@@ -47,21 +67,22 @@ export default class Login extends React.Component {
       return <Redirect to={from} />;
     }
 
+    const header = this.renderHeader();
     return (
       <LoginWrapper>
-        <LoginHeader>Welcome to kudoserver!</LoginHeader>
-        <Logo />
-        <FormInput inputName={'username'}
-                    changeCb={this.handleUserInput.bind(this)}
-                    inputValue={this.state.username} />
-        <FormInput inputName={'password'}
-          changeCb={this.handleUserInput.bind(this)}
-          inputValue={this.state.password}
-          type='password' />
-        <ButtonWrapper>
-          <Button onClick={this.login.bind(this)}>Log in</Button>
-          <Button onClick={this.signUp.bind(this)}>Sign up</Button>
-        </ButtonWrapper>
+          {header}
+          <Logo />
+          <FormInput inputName={'username'}
+                      changeCb={this.handleUserInput.bind(this)}
+                      inputValue={this.state.username} />
+          <FormInput inputName={'password'}
+            changeCb={this.handleUserInput.bind(this)}
+            inputValue={this.state.password}
+            type='password' />
+          <ButtonWrapper>
+            <Button onClick={this.login.bind(this)}>Log in</Button>
+            <Button onClick={this.signUp.bind(this)}>Sign up</Button>
+          </ButtonWrapper>
       </LoginWrapper>
     );
   }

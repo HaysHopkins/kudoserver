@@ -14,6 +14,10 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
+    if params[:giver_id] == params[:receiver_id] 
+      render_error("You can't give yourself a kudo!", :forbidden) and return
+    end
+    
     @kudo = Kudo.create!(kudo_params)
     render json: @kudo, status: :created
   end
@@ -25,6 +29,10 @@ class KudosController < ApplicationController
   end
 
   private
+
+  def render_error(error, status)
+    render json: {error: error}, status: status
+  end
 
   def kudo_params
     params.permit(:text, :giver_id, :receiver_id)

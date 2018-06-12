@@ -1,1 +1,3 @@
-TODO: tests tests tests; sign up / sign up with team; change more components to functional/ui, kudos n+1, make sure counter is working (might need to manually update count before reload)
+TODO:  sign up / sign up with team; wire front end up to handle error states; tests tests tests; change more components to functional/ui, kudos n+1, make sure counter is working (might need to manually update count before reload); empty states; use refresh tokens
+
+Note: with user index scoped to team, this effectively renders the current frontend interface permission restricted based on team; will need more robust permissions to adapt to a more robust interface

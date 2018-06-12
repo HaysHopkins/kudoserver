@@ -13,6 +13,12 @@ export const AuthenticationService = {
       setTimeout(cb, 100);
     });
   },
+  signUp: (params, cb) => {
+    ApiRequester.post('users', params).then((resp) => {
+      window.sessionStorage.kudoserverAccessToken = resp.data.auth_token;
+      setTimeout(cb, 100);
+    });
+  },
   logout: (cb) => {
     window.sessionStorage.removeItem('kudoserverAccessToken');
     setTimeout(cb, 100);

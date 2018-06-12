@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_request, only: :create
+
   # GET /users
   def index
     @users = current_team.users
@@ -14,12 +16,13 @@ class UsersController < ApplicationController
   # POST /user
   def create
     @user = User.create!(user_params)
-    render json: @user, status: :created
+    result = AuthenticateUser.new(user_params[:username], user_params[:password]).call
+    render json: { auth_token: result }
   end
 
   private
 
   def user_params
-    params.permit(:username, :first_name, :last_name)
+    params.permit(:username, :first_name, :last_name, :password)
   end
 end
