@@ -29,7 +29,7 @@ export default class User extends React.Component {
           <UserDatum>Kudos Received:<br/> {this.props.user.kudos_received_count || 0}</UserDatum>
         </UserInfoColumn>
 
-        <Button variant="outlined" color="primary" onClick={this.props.onGiveKudos}>
+        <Button color="primary" onClick={this.props.onGiveKudos}>
           Give Kudo!
         </Button>
 
