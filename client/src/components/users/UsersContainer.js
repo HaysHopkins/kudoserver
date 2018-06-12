@@ -18,7 +18,7 @@ export default class UsersContainer extends React.Component {
     let userContainers = this.state.users.map( user => <UserContainer key={user.id} user={user} />);
     
     return(
-      <List>
+      <List style={{width: "80%", margin: "0, 10%"}}>
         {userContainers}
       </List>
     )
