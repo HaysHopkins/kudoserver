@@ -17,12 +17,13 @@ const Input = styled.input`
   font-size: 14px;
 `;
 
-const renderInput = (changeCb, inputName, inputValue, isRequired) => {
+const renderInput = (changeCb, inputName, inputValue, isRequired, type) => {
   return <Input
           value={inputValue}
           onChange={(event) => changeCb(event)}
           name={inputName}
           required={isRequired}
+          type={type}
          />
 }
 
@@ -31,9 +32,10 @@ export const FormInput = ({
   inputName,
   inputValue,
   isRequired,
+  type,
 }) => (
   <InputContainer>
-    { renderInput(changeCb, inputName, inputValue, isRequired) }
+    { renderInput(changeCb, inputName, inputValue, isRequired, type) }
   </InputContainer>
 );
 
@@ -42,4 +44,5 @@ FormInput.propTypes = {
   inputName: PropTypes.string,
   inputValue: PropTypes.string,
   isRequired: PropTypes.bool,
+  type: PropTypes.string,
 };

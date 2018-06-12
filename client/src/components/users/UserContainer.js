@@ -46,9 +46,7 @@ export default class UserContainer extends React.Component {
 
     return (
       <List>
-        <ListItem style={{marginBottom: '0px', padding: '0px'}}>
-          <User user={this.props.user} onLoadKudos={this.loadKudos.bind(this)} onGiveKudos={this.giveKudo.bind(this)}/>
-        </ListItem>
+        <User user={this.props.user} onLoadKudos={this.loadKudos.bind(this)} onGiveKudos={this.giveKudo.bind(this)}/>
         {this.givingKudo()}
         {kudos}
       </List>

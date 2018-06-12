@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
-import { FormInput } from '../utilities/formInput.js';
+import { FormInput } from '../utilities/FormInput';
 import { FlexColumnCenter } from '../page_layout/FlexLayout.js';
 
 const GiveKudoWrapper = FlexColumnCenter.extend`
@@ -33,7 +33,7 @@ export default class GiveKudo extends React.Component {
     return (
       <GiveKudoWrapper>
         Give a kudo!
-        <FormInput inputName={"kudo"}
+        <FormInput inputName={'kudo'}
                     changeCb={this.handleUserInput.bind(this)}
                     inputValue={this.state.kudo} />
         <ButtonWrapper>

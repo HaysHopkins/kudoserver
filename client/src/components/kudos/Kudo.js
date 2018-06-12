@@ -5,10 +5,13 @@ const KudoWrapper = FlexStart.extend`
   border: solid;
   border-width: 1px;
   padding: 10px;
+  word-wrap: break-word;
 `
 const Kudo = ({text, giver, given_at}) => {
+ const KudoString = `"${text}" -${giver} (${given_at})`
+
  return <KudoWrapper>
-            "{text}" -{giver} ({given_at})
+          {KudoString}
         </KudoWrapper>;
 }
 

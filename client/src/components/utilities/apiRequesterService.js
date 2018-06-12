@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AuthenticationService } from '../utilities/AuthenticationService.js';
+import { AuthenticationService } from '../auth/AuthenticationService.js';
 
 // const ApiClient = window.origin;
 
@@ -7,11 +7,17 @@ const headers = () => (
   {
      'Content-Type': 'application/json',
      Accept: 'application/json',
-     Authorization: `Bearer ${AuthenticationService.get_token()}`,
+     Authorization: `Bearer ${AuthenticationService.getToken()}`,
   }
 );
 
 export const ApiRequester = {
+  authenticate: (params) => (
+    axios.post(`authenticate`, params).then( (resp) => {
+      return resp;
+    })
+  ),
+
   get: (path, params) => (
     axios.get(`${path}`, {
       headers: headers(),

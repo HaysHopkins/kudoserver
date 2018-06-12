@@ -7,13 +7,13 @@ export const AuthenticationService = {
   getToken: () => {
     return window.sessionStorage.kudoserverAccessToken;
   },
-  authenticate: (cb) => {
-    ApiRequester.post(`authenticate`, {}).then((resp) => {
-      window.sessionStorage.kudoserverAccessToken = "test";
+  authenticate: (params, cb) => {
+    ApiRequester.authenticate(params).then((resp) => {
+      window.sessionStorage.kudoserverAccessToken = resp.data.auth_token;
       setTimeout(cb, 100);
     });
   },
-  signout: (cb) => {
+  logout: (cb) => {
     window.sessionStorage.removeItem('kudoserverAccessToken');
     setTimeout(cb, 100);
   }

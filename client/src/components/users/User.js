@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
+import { Logo } from '../page_layout/Logo.js';
 
 const UserWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   border: solid;
   border-width: 1px;
 `;
 const UserInfoColumn = styled.div`
-  width: 70%;
+  width: 90%;
   margin-right: 20px;
 `;
 const UserDatum = styled.div`
@@ -32,7 +31,7 @@ export default class User extends React.Component {
         </UserInfoColumn>
 
         <Button variant="outlined" color="primary" onClick={this.props.onGiveKudos}>
-          Give Kudos
+          Give Kudo!
         </Button>
 
       </UserWrapper>
