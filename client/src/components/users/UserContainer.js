@@ -3,6 +3,7 @@ import User from './User.js';
 import Kudo from '../kudos/Kudo.js';
 import GiveKudo from '../kudos/GiveKudo.js';
 import List from '@material-ui/core/List';
+import Error from '../utilities/Error.js';
 import { ApiRequester } from '../utilities/ApiRequesterService.js';
 
 export default class UserContainer extends React.Component {
@@ -15,6 +16,8 @@ export default class UserContainer extends React.Component {
     if (this.state.kudos.length === 0) {
       ApiRequester.get(`users/${this.props.user.id}/kudos`).then((resp) => {
         this.setState({kudos: resp.data});
+      }).catch((resp) => {
+        Error.report(resp.message);
       });
     } else {
       this.setState({kudos: []});
@@ -33,6 +36,8 @@ export default class UserContainer extends React.Component {
   createKudo = (kudo) => {
     ApiRequester.post(`kudos`, {giver_id: 1, receiver_id: this.props.user.id, text: kudo}).then(() => {
       this.setState({givingKudo: false});
+    }).catch((resp) => {
+      Error.report(resp.message);
     });
   }
 
