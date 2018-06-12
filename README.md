@@ -2,19 +2,19 @@
 ## Tasks
 
 1) 
--[x] Give kudos to other users
--[x] See kudos given to him/her by other users
--[x] View all kudos another user has received
+- [x] Give kudos to other users
+- [x] See kudos given to him/her by other users
+- [x] View all kudos another user has received
 
 2) Additionally, take a swing at adding one or two of the following improvements:
 
--[x]  Allow users to be associated with an organization
--[x] Allow logging in as different users (authentication)
+- [x]  Allow users to be associated with an organization
+- [x] Allow logging in as different users (authentication)
   -This needs work to be production ready, but basic outline is there
--[x] Prevent users from being able to do things they shouldn't (authorization)
+- [x] Prevent users from being able to do things they shouldn't (authorization)
   -Scoping by team effectively accomplishes this; also prevent self-kudos
--[ ] Enforce a limit on giving kudos (for example, up to 3 kudos per week)
--[ ] Limit the number of information displayed on each page (pagination)
+- [ ] Enforce a limit on giving kudos (for example, up to 3 kudos per week)
+- [ ] Limit the number of information displayed on each page (pagination)
 
 
 TODO: tests tests tests; change more components to functional/ui, kudos n+1, make sure counter is working (might need to manually update count before reload); empty states; use refresh tokens; need some more sanity limits on validations (FE, BE and DB); get toast to auto close properly
