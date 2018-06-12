@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   def index
-    @users = User.all
+    @users = current_team.users
     render json: @users, status: :ok
   end
 
