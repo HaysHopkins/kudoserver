@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import UserContainer from './UserContainer.js';
-import { ApiRequester } from '../utilities/apiRequesterService.js';
+import { ApiRequester } from '../utilities/ApiRequesterService';
 
 export default class UsersContainer extends React.Component {
   state = {
