@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { FlexColumnCenter } from './FlexLayout.js';
 import WebFont from 'webfontloader';
 
 WebFont.load({
@@ -7,6 +7,6 @@ WebFont.load({
   }
 });
 
-export const AppWrapper = styled.div`
+export const AppWrapper = FlexColumnCenter.extend`
   font-family: 'Titillium Web', sans-serif;
 `
