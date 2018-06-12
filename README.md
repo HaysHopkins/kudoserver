@@ -16,7 +16,7 @@
 - [ ] Limit the number of information displayed on each page (pagination)
 
 
-TODO: tests tests tests; change more components to functional/ui, kudos n+1, make sure counter is working (might need to manually update count before reload); empty states; use refresh tokens; need some more sanity limits on validations (FE, BE and DB); get toast to auto close properly
+TODO: tests tests tests; change more components to functional/ui, make sure counter is working (might need to manually update count before reload); empty states; use refresh tokens; need some more sanity limits on validations (FE, BE and DB); get toast to auto close properly
 
 
 ## Setup
