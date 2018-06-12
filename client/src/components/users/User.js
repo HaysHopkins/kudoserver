@@ -34,8 +34,8 @@ export const User = ({
   user, 
   expanded}) => {
   return <UserWrapper>
-           {renderDropDownIndicator(expanded)}
-           <UserInfoColumn onClick={onLoadKudos}>        
+           <UserInfoColumn onClick={onLoadKudos}>
+            {renderDropDownIndicator(expanded)}
             <UserDatum>User:<br/> {user.first_name + " " + user.last_name}</UserDatum>
             <UserDatum>Kudos Given:<br/> {user.kudos_given_count || 0}</UserDatum>
             <UserDatum>Kudos Received:<br/> {user.kudos_received_count || 0}</UserDatum>
