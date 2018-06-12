@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 
@@ -17,23 +18,41 @@ const UserDatum = styled.div`
   margin: 10px 30px;
   display: inline-block;
 `
+const DropDownImg = styled.img``
 
-export default class User extends React.Component {
-  render() {
-    return (
-      <UserWrapper>
-
-        <UserInfoColumn onClick={this.props.onLoadKudos}>
-          <UserDatum>User:<br/> {this.props.user.first_name + " " + this.props.user.last_name}</UserDatum>
-          <UserDatum>Kudos Given:<br/> {this.props.user.kudos_given_count || 0}</UserDatum>
-          <UserDatum>Kudos Received:<br/> {this.props.user.kudos_received_count || 0}</UserDatum>
-        </UserInfoColumn>
-
-        <Button color="primary" onClick={this.props.onGiveKudos}>
-          Give Kudo!
-        </Button>
-
-      </UserWrapper>
-    )
-  } 
+const renderDropDownIndicator = (expanded) => {
+  if (!expanded) {
+    return <DropDownImg src="./keyboard_arrow_right.svg" />
+  } else {
+    return <DropDownImg src="./keyboard_arrow_down.svg" />
+  }
 }
+
+export const User = ({
+  onLoadKudos, 
+  onGiveKudos, 
+  user, 
+  expanded}) => {
+  return <UserWrapper>
+           {renderDropDownIndicator(expanded)}
+           <UserInfoColumn onClick={onLoadKudos}>        
+            <UserDatum>User:<br/> {user.first_name + " " + user.last_name}</UserDatum>
+            <UserDatum>Kudos Given:<br/> {user.kudos_given_count || 0}</UserDatum>
+            <UserDatum>Kudos Received:<br/> {user.kudos_received_count || 0}</UserDatum>
+           </UserInfoColumn> 
+           <Button color="primary" onClick={onGiveKudos}>
+             Give Kudo!
+           </Button>
+         </UserWrapper>
+}
+
+User.propTypes = {
+  onLoadKudos: PropTypes.func.isRequired,
+  onGiveKudos: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  expanded: PropTypes.bool,
+};
+
+User.defaultProps = {
+  expanded: false,
+};

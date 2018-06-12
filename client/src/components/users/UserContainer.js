@@ -1,5 +1,5 @@
 import React from 'react';
-import User from './User.js';
+import { User } from './User.js';
 import Kudo from '../kudos/Kudo.js';
 import GiveKudo from '../kudos/GiveKudo.js';
 import List from '@material-ui/core/List';
@@ -10,22 +10,23 @@ export default class UserContainer extends React.Component {
   state = {
     kudos: [],
     givingKudo: false,
+    expanded: false,
   }
 
   loadKudos = () => {
     if (this.state.kudos.length === 0) {
       ApiRequester.get(`users/${this.props.user.id}/kudos`).then((resp) => {
-        this.setState({kudos: resp.data});
+        this.setState({kudos: resp.data, expanded: true});
       }).catch((resp) => {
         Error.report(resp.message);
       });
     } else {
-      this.setState({kudos: []});
+      this.setState({kudos: [], expanded: false});
     }
   }
 
   giveKudo = () => {
-    this.setState({givingKudo: true, });
+    this.setState({givingKudo: true });
   }
 
   givingKudo = () => {
@@ -50,7 +51,11 @@ export default class UserContainer extends React.Component {
 
     return (
       <List>
-        <User user={this.props.user} onLoadKudos={this.loadKudos.bind(this)} onGiveKudos={this.giveKudo.bind(this)}/>
+        <User 
+          user={this.props.user} 
+          onLoadKudos={this.loadKudos.bind(this)} 
+          onGiveKudos={this.giveKudo.bind(this)} 
+          expanded={this.state.expanded} />
         {this.givingKudo()}
         {kudos}
       </List>
